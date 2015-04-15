@@ -12,6 +12,12 @@ vor 3. folgende Befehle in der KONSOLE ausführe
 * git config --global credential.helper 'cache --timeout=3600'
 Dadurch wird das Passwort und der nutzername für 1 stunde gespeichert und muss von sublime text nicht mehr angegeben werden.
 
+###Ansatz
+* GUI welche die Möglichkeit bietet nach den verschiedenen Sachen zu suchen
+* Es wird durchsucht
+* Neues Fenster wird aufgerufen, welches dann alle Dateien untereinander aufreiht, welche den Suchparameter enthalten.
+* Neben dem jeweiligen File wird ein Button "Play" sowie ein "Open in Folder" angezeigt.
+
 ###Todo
 Everything
 Much
