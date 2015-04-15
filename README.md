@@ -19,9 +19,8 @@ Dadurch wird das Passwort und der nutzername für 1 stunde gespeichert und muss 
 * Neben dem jeweiligen File wird ein Button "Play" sowie ein "Open in Folder" angezeigt.
 
 ###Todo
-Everything
-Much
-All
+-Herausfinden welche Dateien durchsucht werden müssen (vielleicht reichen zwei Dateien oder sogar nur eine um alles zu suchen)
+
 
 ###Known Issues
 
