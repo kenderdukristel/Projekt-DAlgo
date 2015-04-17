@@ -1,12 +1,12 @@
 function fileNames = fileSearch(id, sen, word, phon)
 %funktion erhält werte für sprecher-id, satz, wort und phonem, nach denen
-%gesucht werden soll
+%gesucht werden soll als string
 %wenn einer der parameter nicht angegeben wurde, muss er wert 0 erhalten
 %ausgabe von cellarray mit allen dateinamen die auf angaben zutreffen
 
 %dateien öffnen und einlesen
-fileID1 = fopen('Projekt-DAlgo/TIMIT MIT/allsenlist.txt');
-fileID2 = fopen('Projekt-DAlgo/TIMIT MIT/allphonelist.txt');
+fileID1 = fopen('TIMIT MIT/allsenlist.txt');
+fileID2 = fopen('TIMIT MIT/allphonelist.txt');
 
 senFile = textscan(fileID1, '%s','delimiter','\n');
 phonFile = textscan(fileID2, '%s','delimiter','\n');
