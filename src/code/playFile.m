@@ -1,18 +1,32 @@
 function []=playFile(filedir)
-% function to do something usefull (fill out)
+% playFile plays the wav File with the name given in filedir
 % Usage []=playFile(filedir)
 % Input Parameter:
-%	 filedir:	Explain the parameter, default values, and units
+%	 filedir:	String, inherits the direction and the name of the playable file
 
 %------------------------------------------------------------------------ 
-% Example: Provide example here if applicable (one or two lines) 
+% Example: playFile('test') -> plays the wavFile with the name test.wav 
+%          playFile('direction/test') -> plays the test.wav file in the
+%          direction direction
 
 % Author: Finn Bayer, Kristin Haßelbusch, Sandro Wehrhahn (c) TGM @ Jade Hochschule applied licence see EOF 
-% Source: If the function is based on a scientific paper or a web site, 
-%         provide the citation detail here (with equation no. if applicable)  
 % Version History:
 % Ver. 0.01 initial create (empty) 18-Apr-2015  Initials (eg. JB)
+% Ver. 1.0 implemented code 18-Apr-2015 (FB,KH,SW)
 
 %------------Function implementation--------------------------- 
 
+%read the audiofile
+[y,fs]=audioread([filedir '.wav']);
+%initialize a audioplayer object
+player = audioplayer(y,fs);
+%play the audiofile
+play(player);
 
+%pause to play the wav file properly. Otherwise the objects gets deleted
+%after the end of the function
+lenSecOfWav = player.TotalSamples/player.SampleRate; %Length of wav file in seconds
+pause(lenSecOfWav)
+
+
+end
