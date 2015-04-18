@@ -9,8 +9,8 @@ clc;
 
 %------------Script implementation-------- 
 %test foldername
-folderdir='test';
+filedir='test/test.wav';
 
-openFolder(folderdir);
+openFolder(filedir);
 
 
