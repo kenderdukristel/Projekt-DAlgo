@@ -1,11 +1,11 @@
-function [] = openFolder(folderdir)
+function [] = openFolder(filedir)
 % function to do something usefull (fill out)
 % Usage [out_param] = openFolder(in_param)
 % Input Parameter:
-%	 folderdir: 		String, inherits the direction and the name of the
-%	 folder
+%	 filedir: 		String, inherits the direction and the name of the
+%	 file
 %------------------------------------------------------------------------ 
-% Example: Opens the folder in the native GUI
+% Example: Opens the folder of the given file in the native GUI
 
 % Author: Finn Bayer, Kristin Haßelbusch, Sandro Wehrhahn (c) TGM @ Jade Hochschule applied licence see EOF 
 % Version History:
@@ -13,16 +13,22 @@ function [] = openFolder(folderdir)
 
 %------------Function implementation--------------------------- 
 
+%extracting the folderdir
+data = strsplit(filedir,'/');
+folderdir = data(1:end-1);
+
+
 %get the current os
 curOs = computer;
-if strfind(curOs,'WIN')==1 %Windows
-    system(['explorer ' folderdir]);
-    
-elseif strfind(curOs,'GLN')==1  %Linux
-    system(['nautilus ' folderdir]);
-elseif strfind(curOs,'MAC')==1 %Mac
-    system(['open ' folderdir]);
-    
+
+%compare the current os with Windows, Linux and Mac and than use the
+%expected command
+if strfind(curOs,'WIN')~=0 %Windows
+    system(['explorer ' folderdir{1}]);    
+elseif strfind(curOs,'GLN')~=0  %Linux
+    system(['nautilus ' folderdir{1}]);
+elseif strfind(curOs,'MAC')~=0 %Mac
+    system(['open ' folderdir{1}]);
 else
     disp('Your current OS is not supported. Sorry!')
 end
