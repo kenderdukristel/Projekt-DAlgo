@@ -20,6 +20,11 @@ Dadurch wird das Passwort und der nutzername für 1 stunde gespeichert und muss 
 
 ###Todo
 -Herausfinden welche Dateien durchsucht werden müssen (vielleicht reichen zwei Dateien oder sogar nur eine um alles zu suchen)
+-GUI-Sinnvolle Namen, Rückgabeparameter
+	-erstmal für die Suche ###Sandro
+	-Unterfenster öffnen
+-Eingabeabfrage ###Kristin
+-open Folder, run file ###Finn	
 
 
 ###Known Issues
