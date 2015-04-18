@@ -21,6 +21,7 @@ function fileNames = fileSearch(id, sen, word, phon)
 % Ver. 1.10 splited function in two functions, new for-loop 18-Apr-2015  KH
 
 %------------Function implementation---------------------------
+%FIX ME: nach phonem nur in dem string nach dem dateinamen suchen
 
 %allsenlist.txt and allphonelist.txt contain all needed information 
 %--> sentences and phonems to each file, speaker id in filename
@@ -29,6 +30,7 @@ fileID2 = fopen('../../TIMIT MIT/allphonelist.txt');
 %cell array with text of file in strings, delimited by line break
 senFile = textscan(fileID1, '%s','delimiter','\n');
 phonFile = textscan(fileID2, '%s','delimiter','\n');
+
 
 fclose(fileID1);
 fclose(fileID2);
