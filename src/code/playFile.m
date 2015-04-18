@@ -3,7 +3,6 @@ function []=playFile(filedir)
 % Usage []=playFile(filedir)
 % Input Parameter:
 %	 filedir:	String, inherits the direction and the name of the playable file
-
 %------------------------------------------------------------------------ 
 % Example: playFile('test') -> plays the wavFile with the name test.wav 
 %          playFile('direction/test') -> plays the test.wav file in the
