@@ -22,7 +22,8 @@ function varargout = test_GUI(varargin)
 
 % Edit the above text to modify the response to help test_GUI
 
-% Last Modified by GUIDE v2.5 25-Apr-2015 23:22:53
+% Last Modified by GUIDE v2.5 26-Apr-2015 12:18:46
+%FIXME: nach mehreren parametern suchen --> dynamische GUI
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -155,7 +156,11 @@ if isempty(stringToSearchFor) == 1
     stringToSearchFor = 0;
 end
 fileNames = callFileSearch(parameterType,stringToSearchFor);
-set(handles.listboxResults,'string',fileNames);
+if isempty(fileNames) ==0
+    set(handles.listboxResults,'string',fileNames);
+else
+    set(handles.listboxResults,'string','keine Ergebnisse');
+end
 
 
 
@@ -214,3 +219,156 @@ indexSelected = get(handles.listboxResults,'Value');
 fileNames = get(handles.listboxResults,'String');
 fileNameDir = ['../../TIMIT MIT/' fileNames{indexSelected}];
 openFolder(fileNameDir);
+
+
+
+function editID_Callback(hObject, eventdata, handles)
+% hObject    handle to editID (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of editID as text
+%        str2double(get(hObject,'String')) returns contents of editID as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function editID_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to editID (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function editSen_Callback(hObject, eventdata, handles)
+% hObject    handle to editSen (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of editSen as text
+%        str2double(get(hObject,'String')) returns contents of editSen as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function editSen_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to editSen (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function editWord_Callback(hObject, eventdata, handles)
+% hObject    handle to editWord (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of editWord as text
+%        str2double(get(hObject,'String')) returns contents of editWord as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function editWord_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to editWord (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function editPhon_Callback(hObject, eventdata, handles)
+% hObject    handle to editPhon (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of editPhon as text
+%        str2double(get(hObject,'String')) returns contents of editPhon as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function editPhon_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to editPhon (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on button press in losAdvanced.
+function losAdvanced_Callback(hObject, eventdata, handles)
+% hObject    handle to losAdvanced (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+id = get(handles.editID,'String');
+if isempty(id) == 1
+    id = 0;
+end
+sen = get(handles.editSen,'String');
+if isempty(sen) == 1
+    sen = 0;
+end
+word = get(handles.editWord,'String');
+if isempty(word) == 1
+    word = 0;
+end
+phon = get(handles.editPhon,'String');
+if isempty(phon) == 1
+    phon = 0;
+end
+fileNames = fileSearch(id,sen,word,phon);
+if isempty(fileNames) ==0
+    set(handles.listboxResults,'string',fileNames);
+else
+    set(handles.listboxResults,'string','keine Ergebnisse');
+end
+
+
+
+% --- Executes on button press in moreParButton.
+function moreParButton_Callback(hObject, eventdata, handles)
+% hObject    handle to moreParButton (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of moreParButton
+
+wantAdvanced = get(hObject,'Value');
+
+if wantAdvanced == 1
+    set(handles.figure1,'position',[136 19 116 31]);
+    set(handles.searchbox,'enable','off');
+    set(handles.los,'enable','off');
+    set(handles.buttonID,'enable','off');
+    set(handles.buttonSen,'enable','off');
+    set(handles.buttonWord,'enable','off');
+    set(handles.buttonPhon,'enable','off');
+else
+    set(handles.figure1,'position',[136 19 75 31]);
+    set(handles.searchbox,'enable','on');
+    set(handles.los,'enable','on');
+    set(handles.buttonID,'enable','on');
+    set(handles.buttonSen,'enable','on');
+    set(handles.buttonWord,'enable','on');
+    set(handles.buttonPhon,'enable','on');
+    
+end
