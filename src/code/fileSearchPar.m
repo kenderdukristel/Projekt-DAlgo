@@ -34,22 +34,22 @@ end
 %search for par in fileCell
 fileListPar = {};
 if par~=0
-    %split strings containing the lines to avoid searching in filename, for 
-    %all parameters except speaker id. speaker id is identified by last 
-    %element of the first string being a number, there only use filename
-    %for search
-    %FIX ME: funktioniert noch nicht
-    if isempty(str2double(par(length(par))))==1
-        for k = 1:length(vec)
-            lineSplitted = strsplit(vec{k},'\t');
-            vec{k} = lineSplitted{2};
-        end
+    
+    %FIX ME: nach ID nur in dateinamen, nach satz/wort/phonem nur im string
+    %suchen
+%     if isempty(str2num(par(length(par))))==1
+%         for k = 1:length(vec)
+%             lineSplitted = strsplit(vec{k},'\t');
+%             vec{k} = lineSplitted{2};
+%         end
 %     else
 %         for k = 1:length(vec)
 %             lineSplitted = strsplit(vec{k},'\t');
 %             vec{k} = lineSplitted{1};
 %         end
-    end
+%     end
+
+
     %search in the cell array vec after the string par
     %fileListPar is cell array containing all filenames where par is found
     for i=1:length(vec)

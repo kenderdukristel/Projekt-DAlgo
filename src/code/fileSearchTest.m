@@ -12,8 +12,8 @@ clc;
 %string oder 0
 id = 0;
 sen = 0;
-word = 'suit';
-phon = 'n';
+word = 'cpm0';
+phon = 0;
 
 %call function
 fileNames = fileSearch(id, sen, word, phon);
