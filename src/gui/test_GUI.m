@@ -141,6 +141,12 @@ function los_Callback(hObject, eventdata, handles)
 %Reads content of Edit Text and checks which radiobutton is selected
 %calls callFileSearch with these values
 selectedButton = get(get(handles.parameterSelected,'SelectedObject'),'String');
+
+%to catch the error if no searchparameter is set
+if isempty(selectedButton) 
+    selectedButton = 0;
+end
+
 stringToSearchFor = get(handles.searchbox,'String');
 if isempty(stringToSearchFor) == 1
     stringToSearchFor = 0;
@@ -155,6 +161,8 @@ switch selectedButton
         fileNames = fileSearch(0,0,stringToSearchFor,0);
     case 'Phonem'
         fileNames = fileSearch(0,0,0,stringToSearchFor);
+    case 0
+        fileNames=[];
 end
 
 if isempty(fileNames) ==0
