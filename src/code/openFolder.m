@@ -15,7 +15,11 @@ function [] = openFolder(filedir)
 
 %extracting the folderdir
 data = strsplit(filedir,'/');
-folderdir = data(1:end-1);
+folderdir='"';
+for kk=1:length(data)-1
+    folderdir = [folderdir data{kk} '/'];
+end
+folderdir = [folderdir '"'];
 
 
 %get the current os
@@ -24,11 +28,11 @@ curOs = computer;
 %compare the current os with Windows, Linux and Mac and than use the
 %expected command
 if strfind(curOs,'WIN')~=0 %Windows
-    system(['explorer ' folderdir{1}]);    
+    system(['explorer ' folderdir]);    
 elseif strfind(curOs,'GLN')~=0  %Linux
-    system(['nautilus ' folderdir{1}]);
+    system(['nautilus ' folderdir]);
 elseif strfind(curOs,'MAC')~=0 %Mac
-    system(['open ' folderdir{1}]);
+    system(['open ' folderdir]);
 else
     disp('Your current OS is not supported. Sorry!')
 end
