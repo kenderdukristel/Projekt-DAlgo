@@ -15,8 +15,9 @@ function [] = openFolder(filedir)
 
 %extracting the folderdir
 data = strsplit(filedir,'/');
-folderdir='"';
-for kk=1:length(data)-1
+%getting the full path of the file
+folderdir=['"' pwd];
+for kk=3:length(data)-1
     folderdir = [folderdir data{kk} '/'];
 end
 folderdir = [folderdir '"'];
@@ -28,7 +29,8 @@ curOs = computer;
 %compare the current os with Windows, Linux and Mac and than use the
 %expected command
 if strfind(curOs,'WIN')~=0 %Windows
-    system(['explorer ' folderdir]);    
+    system(['explorer ' pwd]);
+    
 elseif strfind(curOs,'GLN')~=0  %Linux
     system(['nautilus ' folderdir]);
 elseif strfind(curOs,'MAC')~=0 %Mac
