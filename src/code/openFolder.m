@@ -18,17 +18,17 @@ curOs = computer;
 %extracting the folderdir
 data = strsplit(filedir,'/');
 %getting the full path of the file
-folderdir=['"' pwd];
 if strfind(curOs,'WIN')~=0 %Windows
     slash = '\';
 else
     slash = '/';
 end
 
-for kk=3:length(data)-1
-    folderdir = [folderdir slash data{kk} ];
-end
-folderdir = [folderdir '"'];
+folderdir=['"' pwd slash data{1} data{2} '"'];
+
+%for kk=3:length(data)-1
+%    folderdir = [folderdir slash data{kk} ];
+%end
 
 
 
