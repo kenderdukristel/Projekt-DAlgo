@@ -12,25 +12,30 @@ function [] = openFolder(filedir)
 % Ver. 0.01 initial create (empty) 18-Apr-2015  Initials (eg. JB)
 
 %------------Function implementation--------------------------- 
+%get the current os
+curOs = computer;
 
 %extracting the folderdir
 data = strsplit(filedir,'/');
 %getting the full path of the file
 folderdir=['"' pwd];
+if strfind(curOs,'WIN')~=0 %Windows
+    slash = '\';
+else
+    slash = '/';
+end
+
 for kk=3:length(data)-1
-    folderdir = [folderdir data{kk} '/'];
+    folderdir = [folderdir slash data{kk} ];
 end
 folderdir = [folderdir '"'];
 
 
-%get the current os
-curOs = computer;
 
 %compare the current os with Windows, Linux and Mac and than use the
 %expected command
 if strfind(curOs,'WIN')~=0 %Windows
-    system(['explorer ' pwd]);
-    
+    system(['explorer ' folderdir]);
 elseif strfind(curOs,'GLN')~=0  %Linux
     system(['nautilus ' folderdir]);
 elseif strfind(curOs,'MAC')~=0 %Mac
