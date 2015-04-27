@@ -24,12 +24,7 @@ else
     slash = '/';
 end
 
-folderdir=['"' pwd slash data{1} data{2} '"'];
-
-%for kk=3:length(data)-1
-%    folderdir = [folderdir slash data{kk} ];
-%end
-
+folderdir=['"' pwd slash data{1} slash data{2} '"'];
 
 
 %compare the current os with Windows, Linux and Mac and than use the
