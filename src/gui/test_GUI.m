@@ -168,7 +168,7 @@ end
 if isempty(fileNames) ==0
     set(handles.listboxResults,'string',fileNames);
 else
-    set(handles.listboxResults,'string','keine Ergebnisse');
+    set(handles.listboxResults,'string','Keine Ergebnisse');
 end
 
 
@@ -346,7 +346,7 @@ fileNames = fileSearch(id,sen,word,phon);
 if isempty(fileNames) ==0
     set(handles.listboxResults,'string',fileNames);
 else
-    set(handles.listboxResults,'string','keine Ergebnisse');
+    set(handles.listboxResults,'string','Keine Ergebnisse');
 end
 %FIX ME: suche funktioniert nicht für mehrere parameter
 %Warning: Single-selection 'listbox' control requires that 'Value' be
@@ -366,7 +366,8 @@ function moreParButton_Callback(hObject, eventdata, handles)
 wantAdvanced = get(hObject,'Value');
 
 if wantAdvanced == 1
-    set(handles.figure1,'position',[136 19 116 31]);
+    currentPos = get(handles.figure1,'position');
+    set(handles.figure1,'position',[currentPos(1) currentPos(2) 116 31]);
     set(handles.searchbox,'enable','off');
     set(handles.los,'enable','off');
     set(handles.buttonID,'enable','off');
@@ -374,7 +375,8 @@ if wantAdvanced == 1
     set(handles.buttonWord,'enable','off');
     set(handles.buttonPhon,'enable','off');
 else
-    set(handles.figure1,'position',[136 19 75 31]);
+    currentPos = get(handles.figure1,'position');
+    set(handles.figure1,'position',[currentPos(1) currentPos(2) 75 31]);
     set(handles.searchbox,'enable','on');
     set(handles.los,'enable','on');
     set(handles.buttonID,'enable','on');

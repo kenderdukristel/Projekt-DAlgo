@@ -25,8 +25,8 @@ function fileNames = fileSearch(id, sen, word, phon)
 
 %allsenlist.txt and allphonelist.txt contain all needed information 
 %--> sentences and phonems to each file, speaker id in filename
-fileID1 = fopen('../../TIMIT MIT/allsenlist.txt');
-fileID2 = fopen('../../TIMIT MIT/allphonelist.txt');
+fileID1 = fopen('TIMIT MIT/allsenlist.txt');
+fileID2 = fopen('TIMIT MIT/allphonelist.txt');
 %cell array with text of file in strings, delimited by line break
 senFile = textscan(fileID1, '%s','delimiter','\n');
 phonFile = textscan(fileID2, '%s','delimiter','\n');
