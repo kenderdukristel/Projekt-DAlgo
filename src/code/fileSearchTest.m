@@ -10,9 +10,9 @@ clc;
 %------------Script implementation-------- 
 
 %string oder 0
-id = 0;
+id = 'vmh0';
 sen = 0;
-word = 'cpm0';
+word = 'suit';
 phon = 0;
 
 %call function

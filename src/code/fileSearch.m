@@ -19,6 +19,7 @@ function fileNames = fileSearch(id, sen, word, phon)
 % Ver. 0.01 initial create (empty) 15-Apr-2015  KH
 % Ver. 1.00 first implementation 15-Apr-2015  KH
 % Ver. 1.10 splited function in two functions, new for-loop 18-Apr-2015  KH
+% Ver. 1.20 new argument for fileSearchPar 27-Apr-2015  KH
 
 %------------Function implementation---------------------------
 
@@ -33,17 +34,22 @@ phonFile = textscan(fileID2, '%s','delimiter','\n');
 fclose(fileID1);
 fclose(fileID2);
 
+
+fileNamesAll = {{} {} {} {}};
+par = {id, sen, word, phon}; %parameters to search for
+%parID specifies in which file to search for which parameter
+parID = [senFile, senFile, senFile, phonFile]; 
+%parPartString specifies in which part of the line to search
+parPartString = [1 2 2 2];
+
 %searching in file for each paramter with function fileSearchPar()
 %fileSearchPar() returns cell array with all file names matching par{i}
 %fileNamesAll is cell array containg found filenames for each of the four
 %parameters in one row
-fileNamesAll = {{} {} {} {}};
-par = {id, sen, word, phon}; 
-%parID specifies in which file to search for which parameter
-parID = [senFile, senFile, senFile, phonFile]; 
 for i=1:length(par)
-    fileNamesAll{i} = fileSearchPar(parID(i),par{i});
+    fileNamesAll{i} = fileSearchPar(parID(i),par{i},parPartString(i));
 end
+
 
 %intersect() gives  back cell array with elements equal in both given cell array
 %comparison, which filenames are in all of the four cell arrays

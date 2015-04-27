@@ -172,8 +172,6 @@ else
 end
 
 
-
-
 % --- Executes on button press in pushbutton3.
 function pushbutton3_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton3 (see GCBO)
@@ -350,7 +348,11 @@ if isempty(fileNames) ==0
 else
     set(handles.listboxResults,'string','keine Ergebnisse');
 end
-
+%FIX ME: suche funktioniert nicht für mehrere parameter
+%Warning: Single-selection 'listbox' control requires that 'Value' be
+%an integer within String range
+%Control will not be rendered until all of its parameter values are
+%valid 
 
 
 % --- Executes on button press in moreParButton.
