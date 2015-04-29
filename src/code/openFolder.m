@@ -1,15 +1,15 @@
 function [] = openFolder(filedir)
-% function to do something usefull (fill out)
-% Usage [out_param] = openFolder(in_param)
+% function to open the Folder which contains the selected file 
+% Usage [] = openFolder('C:/dir/file.txt')
 % Input Parameter:
-%	 filedir: 		String, inherits the direction and the name of the
+%	 filedir: 		String, contains the direction and the name of the
 %	 file
 %------------------------------------------------------------------------ 
-% Example: Opens the folder of the given file in the native GUI
 
 % Author: Finn Bayer, Kristin Haßelbusch, Sandro Wehrhahn (c) TGM @ Jade Hochschule applied licence see EOF 
 % Version History:
 % Ver. 0.01 initial create (empty) 18-Apr-2015  Initials (eg. JB)
+% Ver. 1.0 implemented the code and fixed some early bugs 29-Apr-2015 (FB,KH,SW)
 
 %------------Function implementation--------------------------- 
 %get the current os
@@ -24,6 +24,7 @@ else
     slash = '/';
 end
 
+%assembling the folderdirection in the right way for every OS
 folderdir=['"' pwd slash data{1} slash data{2} '"'];
 
 

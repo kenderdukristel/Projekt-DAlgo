@@ -1,4 +1,6 @@
-%starter of the project DAlgo
+%script to start the Framework to search the TIMIT MIT database
 
+%adding the folders and subfolders with the sourcecode to the path
 addpath(genpath('src'))
-test_GUI
+%starting the gui
+searchGUI
