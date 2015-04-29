@@ -18,5 +18,6 @@ phon = 0;
 %call function
 fileNames = fileSearch(id, sen, word, phon);
 
-disp(fileNames)
+expectedResult = {'dr1-fvmh0/sa1'};
+assert(isempty(setxor(fileNames,expectedResult))==1,'Function fileSearch gives wrong result')
 
