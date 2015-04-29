@@ -3,4 +3,4 @@
 %adding the folders and subfolders with the sourcecode to the path
 addpath(genpath('src'))
 %starting the gui
-searchGUI
+searchGui
