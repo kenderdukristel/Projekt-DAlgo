@@ -57,6 +57,7 @@ handles.output = 'Yes';
 % Update handles structure
 guidata(hObject, handles);
 
+
 % Insert custom Title and Text if specified by the user
 % Hint: when choosing keywords, be sure they are not easily confused 
 % with existing figure properties.  See the output of set(figure) for
@@ -147,13 +148,19 @@ delete(handles.figure1);
 % --- Executes on button press in yesButton.
 function yesButton_Callback(hObject, eventdata, handles)
 %if button is pressed, a 1 will be returned
-varargout = 1;
+
+handles.output = 1;
+guidata(hObject, handles);
+
 close(gcbf)
 
 % --- Executes on button press in noButton.
 function noButton_Callback(hObject, eventdata, handles)
 % if button is pressed a 0 will be returned
-varargout = 0;
+
+handles.output = 0;
+guidata(hObject, handles);
+
 close(gcbf)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

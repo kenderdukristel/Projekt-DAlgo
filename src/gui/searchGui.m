@@ -164,7 +164,8 @@ if iscell(fileNames)==1
     if Noise == 0
         playFile(fileNameDir);
     else
-        if warningGui
+        tmp = warningGui;
+        if tmp==1
             playFile(fileNameDir);
         end
     end
