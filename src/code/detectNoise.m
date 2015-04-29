@@ -18,7 +18,7 @@ function noiseDetected = detectNoise(fileName)
 %------------Function implementation--------------------------- 
 
 %read audiofile
-[sig,fs] = audioread([fileName 'wav']);
+[sig,fs] = audioread([fileName '.wav']);
 
 %calculated power density spectrum
 FFTLen = 2048;

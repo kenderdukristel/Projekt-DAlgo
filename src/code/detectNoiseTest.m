@@ -11,7 +11,7 @@ clc;
 %------------Script implementation-------- 
 
 %name of file
-filename = 'dr1-fvmh0\sa1.wav';
+filename = 'dr1-fvmh0\sa1';
 
 %call function
 noise = detectNoise(filename);
