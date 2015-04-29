@@ -1,7 +1,7 @@
 % Script to test the function fileSearch.m 
 % Author: Finn Bayer, Kristin Haﬂelbusch, Sandro Wehrhahn (c) TGM @ Jade Hochschule applied licence see EOF 
 % Version History:
-% Ver. 0.01 initial create (empty) 18-Apr-2015 	KH
+% Ver. 0.01 initial create (empty) 18-Apr-2015 	(FB,KH,SW)
 
 clear;
 close all;

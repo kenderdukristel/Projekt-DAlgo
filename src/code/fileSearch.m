@@ -16,10 +16,10 @@ function fileNames = fileSearch(id, sen, word, phon)
 % Author: Finn Bayer, Kristin Haﬂelbusch, Sandro Wehrhahn (c) TGM @ Jade Hochschule applied licence see EOF
 
 % Version History:
-% Ver. 0.01 initial create (empty) 15-Apr-2015  KH
-% Ver. 1.00 first implementation 15-Apr-2015  KH
-% Ver. 1.10 splited function in two functions, new for-loop 18-Apr-2015  KH
-% Ver. 1.20 new argument for fileSearchPar 27-Apr-2015  KH
+% Ver. 0.01 initial create (empty) 15-Apr-2015  (FB,KH,SW)
+% Ver. 1.00 first implementation 15-Apr-2015  (FB,KH,SW)
+% Ver. 1.10 splited function in two functions, new for-loop 18-Apr-2015  (FB,KH,SW)
+% Ver. 1.20 new argument for fileSearchPar 27-Apr-2015  (FB,KH,SW)
 
 %------------Function implementation---------------------------
 
