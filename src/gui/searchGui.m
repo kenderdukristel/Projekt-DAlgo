@@ -160,7 +160,14 @@ indexSelected = get(handles.listboxResults,'Value');
 %the audiofile with the name of the selected element is played
 if iscell(fileNames)==1
     fileNameDir = ['TIMIT MIT/' fileNames{indexSelected}];
-    playFile(fileNameDir);
+    Noise = detectNoise(fileNameDir);
+    if Noise == 0
+        playFile(fileNameDir);
+    else
+        if warningGui
+            playFile(fileNameDir);
+        end
+    end
 end
 
 %%%%%%%%%%%%%%%%%% End Play Callback %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
