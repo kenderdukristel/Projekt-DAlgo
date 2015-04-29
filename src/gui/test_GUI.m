@@ -300,7 +300,7 @@ indexSelected = get(handles.listboxResults,'Value');
 fileNames = get(handles.listboxResults,'String');
 
 file = fileNames{indexSelected};
-path = ['\TIMIT MIT\' file '.txt'];
+path = ['TIMIT MIT/' file '.txt'];
 fid = fopen(path);
 zeile = textscan(fid,'%s','delimiter',' ');
 fclose(fid);
