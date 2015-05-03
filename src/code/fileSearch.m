@@ -38,10 +38,11 @@ fileID2 = fopen('TIMIT MIT/allphonelist.txt');
 senFile = textscan(fileID1, '%s','delimiter','\n');
 phonFile = textscan(fileID2, '%s','delimiter','\n');
 
+%closing the files
 fclose(fileID1);
 fclose(fileID2);
 
-
+%initialising fileNamesAll as empty cellarray
 fileNamesAll = {{} {} {} {}};
 par = {id, sen, word, phon}; %parameters to search for
 %parID specifies in which file to search for which parameter
