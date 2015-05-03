@@ -118,7 +118,7 @@ end
 %if there were matches, the elements of the cell array (which are filenames)
 %are displayed in the listbox, if not it shows 'Keine Ergebnisse'
 if isempty(fileNames) ==0
-    if strcomp(fileNames,'wrongInput')==1
+    if strcmp(fileNames,'wrongInput')==1
         wrongInput;
         set(handles.listboxResults,'string',['Keine Ergebnisse fuer ' stringToSearchFor],'value',1);
     else
