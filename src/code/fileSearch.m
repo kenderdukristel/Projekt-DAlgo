@@ -24,13 +24,14 @@ function fileNames = fileSearch(id, sen, word, phon)
 %------------Function implementation---------------------------
 
 %wrong input handling
-if ischar(sen) 
-    if isempty(strfind(sen,' ')) || ~strcmp(sen(end),'.')
-        fileNames = 'wrongInput';
-        return
-    end
+if ischar(sen) && (isempty(strfind(sen,' ')) || ~strcmp(sen(end),'.'))
+    fileNames = 'wrongInput';
+    return
 end
-   
+if ischar(word) && ~isempty(strfind(word,' '))
+    fileNames = 'wrongInput';
+    return
+end   
 
 %allsenlist.txt and allphonelist.txt contain all needed information 
 %--> sentences and phonems to each file, speaker id in filename
