@@ -27,7 +27,7 @@ elseif strfind(curOs,'GLN')~=0  %Linux
     system(['nautilus ' folderdir]);
 elseif strfind(curOs,'MAC')~=0 %Mac
     folderdir=[pwd '/' data{1} '/' data{2} ];
-    folderdir = strrep(folderdir, ' ','\ ');
+    folderdir = strrep(folderdir,' ','\ ');
     system(['open ' folderdir]);
 else
     disp('Your current OS is not supported. Sorry!')
