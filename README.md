@@ -12,6 +12,8 @@ General Structure:
 
 The application was created by Finn Bayer, Kristin Hasselbusch and Sandro Wehrhahn. It's published under the MIT License (see LICENSE.txt).
 
+###Dependencies
+* MATLAB (tested with rev.2014a and 2015a)
 
 ###Getting Started
 * clone the project
@@ -28,7 +30,11 @@ Due to the huge ammount of code somebody would have to implement to guide the us
 * words are words. no spaces, nothing. Simply words. (e.g.:'and')
 * Phonemes are phonemes. no spaces, nothing. simply phonemes. (e.g.:'ix')
 
-###Known Issues
-If you are searching e.g. for "he" or "did" you won't find compound words like "he'd". 
+###Version History
+* 1.0 first release (03.05.2015)
 
+###Known Issues
+* If you are searching e.g. for "he" or "did" you won't find compound words like "he'd". 
+* There are some files which contain noise but aren't detected by the detectNoise-function ('dr3-falk/si658') because the power of the noise is to low.
+The amount of non-detected files is as low as possible. Reduce the power level to detect noise would rise the false noise detections and bother the user.
 
