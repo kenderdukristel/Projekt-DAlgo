@@ -2,7 +2,7 @@
 #*Projekt für Modul Daten und Algorithmen SoSe 2015*
 
 ###Overview
-This MATLAB Framework provides a GUI which you can use to search the TIMIT MIT database. It displays you the sentence right in the gui, allows you to play the appropriate sound files right out of the gui as well as open the containing folder of the selected file.
+This MATLAB Framework provides a GUI which you can use to search the TIMIT MIT database. It displays you the sentence right in the gui, allows you to play the corresponding sound files right out of the gui as well as open the containing folder of the selected file.
 General Structure:
 * src -> contains the executable code seperated into gui code and other code
 * TIMIT MIT -> contains the database
@@ -29,6 +29,7 @@ Due to the huge ammount of code somebody would have to implement to guide the us
 * A sentence contains spaces and a dot at the end. Otherwise it's not a sentence for this framework. We know that there are several 'wrong' inputs you can make while you still fulfill this guideline (e.g. 'D .'), but we believe that the user is smart enough to search for real sentences. (Still, this example wouldn't throw an error, there is only a lack of results)
 * words are words. no spaces, nothing. Simply words. (e.g.:'and')
 * Phonemes are phonemes. no spaces, nothing. simply phonemes. (e.g.:'ix')
+IMPORTANT: Do not use the quotation marks in the search box! 
 
 ###Version History
 * 1.0 first release (03.05.2015)
