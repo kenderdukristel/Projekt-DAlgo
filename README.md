@@ -2,7 +2,7 @@
 #*Projekt für Modul Daten und Algorithmen SoSe 2015*
 
 ###Overview
-This application provides a GUI which you can use to search the TIMIT MIT database. It allowes you to play the sound files of the database right out of the gui as well as open the containing folder of the selected file.
+This MATLAB Framework provides a GUI which you can use to search the TIMIT MIT database. It displays you the sentence right in the gui, allows you to play the appropriate sound files right out of the gui as well as open the containing folder of the selected file.
 General Structure:
 * src -> contains the executable code seperated into gui code and other code
 * TIMIT MIT -> contains the database
