@@ -20,7 +20,7 @@ data = strsplit(filedir,'/');
 %compare the current os with Windows, Linux and Mac and than use the
 %expected command
 if strfind(curOs,'WIN')~=0 %Windows
-    folderdir=[pwd '"' '\' slash data{1} '\' data{2} '"'];
+    folderdir=[pwd '"' '\' data{1} '\' data{2} '"'];
     system(['explorer ' folderdir]);
 elseif strfind(curOs,'GLN')~=0  %Linux
     folderdir=['"' pwd '/' slash data{1} '/' data{2} '"'];
