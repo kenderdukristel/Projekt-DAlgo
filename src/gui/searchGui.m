@@ -103,13 +103,13 @@ end
 %call fileSearch with the entered string depending on which button was
 %selected, matches are saved in fileNames as a cell array
 switch selectedButton
-    case 'Sprecher-ID'
+    case 'Speaker-ID'
         fileNames = fileSearch(stringToSearchFor,0,0,0);
-    case 'Satz'
+    case 'Sentence'
         fileNames = fileSearch(0,stringToSearchFor,0,0);
-    case 'Wort'
+    case 'Word'
         fileNames = fileSearch(0,0,stringToSearchFor,0);
-    case 'Phonem'
+    case 'Phoneme'
         fileNames = fileSearch(0,0,0,stringToSearchFor);
     case 0
         fileNames=[];
@@ -267,10 +267,7 @@ end
 if isempty(phon) == 1
     phon = 0;
 end
-disp(id)
-disp(sen)
-disp(word)
-disp(phon)
+
 %call fileSearch with the entered strings, matches are saved in fileNames
 %as a cell array
 fileNames = fileSearch(id,sen,word,phon);
@@ -282,7 +279,7 @@ if isempty(fileNames) ==0
 else
     set(handles.listboxResults,'string','Keine Ergebnisse','value',1);
 end
-disp('ready')
+
 %displays the first sentence right after searching
 displaySentence(handles)
 
