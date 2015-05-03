@@ -13,7 +13,7 @@ function fileNames = fileSearch(id, sen, word, phon)
 %------------------------------------------------------------------------
 % Example: fileNames = fileSearch('cpm0', 0, 'suit', 0);
 
-% Author: Finn Bayer, Kristin Haßelbusch, Sandro Wehrhahn (c) TGM @ Jade Hochschule applied licence see EOF
+% Author: Finn Bayer, Kristin Hasselbusch, Sandro Wehrhahn (c) TGM @ Jade Hochschule applied licence see EOF
 
 % Version History:
 % Ver. 0.01 initial create (empty) 15-Apr-2015  (FB,KH,SW)
@@ -22,6 +22,13 @@ function fileNames = fileSearch(id, sen, word, phon)
 % Ver. 1.20 new argument for fileSearchPar 27-Apr-2015  (FB,KH,SW)
 
 %------------Function implementation---------------------------
+
+%wrong input handling
+if sen~=0 && isempty(strfind(sen,' ')) && isempty(strfind(sen,'.'))
+    fileNames = 'wrongInput';
+    return
+end
+   
 
 %allsenlist.txt and allphonelist.txt contain all needed information 
 %--> sentences and phonems to each file, speaker id in filename
