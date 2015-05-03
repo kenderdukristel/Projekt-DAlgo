@@ -280,7 +280,12 @@ fileNames = fileSearch(id,sen,word,phon);
 %if there were matches, the elements of the cell array (which are filenames)
 %are displayed in the listbox, if not it shows 'Keine Ergebnisse'
 if isempty(fileNames) ==0
-    set(handles.listboxResults,'string',fileNames,'value',1);
+    if strcmp(fileNames,'wrongInput')==1
+        wrongInput;
+        set(handles.listboxResults,'string',['Keine Ergebnisse fuer ' stringToSearchFor],'value',1);
+    else
+        set(handles.listboxResults,'string',fileNames,'value',1);
+    end
 else
     set(handles.listboxResults,'string','Keine Ergebnisse','value',1);
 end
@@ -329,68 +334,5 @@ else
 end
 
 %%%%%%%%%%%%%%%%%%%%%%End Display Full Sentences %%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%% Keyboard Input %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-function searchbox_Callback(hObject, eventdata, handles)
-% hObject    handle to searchbox (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of searchbox as text
-%        str2double(get(hObject,'String')) returns contents of searchbox as a double
-if strcmp(get(handles.figure1,'CurrentCharacter'),char(13))==1
-    losAdvanced_Callback(hObject,eventdata,handles)
-end
-
-function editID_Callback(hObject, eventdata, handles)
-% hObject    handle to editID (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of editID as text
-%        str2double(get(hObject,'String')) returns contents of editID as a double
-if strcmp(get(handles.figure1,'CurrentCharacter'),char(13))==1
-    losAdvanced_Callback(hObject,eventdata,handles)
-end
-
-
-function editSen_Callback(hObject, eventdata, handles)
-% hObject    handle to editSen (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of editSen as text
-%        str2double(get(hObject,'String')) returns contents of editSen as a double
-
-if strcmp(get(handles.figure1,'CurrentCharacter'),char(13))==1
-    losAdvanced_Callback(hObject,eventdata,handles)
-end
-
-
-function editWord_Callback(hObject, eventdata, handles)
-% hObject    handle to editWord (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of editWord as text
-%        str2double(get(hObject,'String')) returns contents of editWord as a double
-if strcmp(get(handles.figure1,'CurrentCharacter'),char(13))==1
-    losAdvanced_Callback(hObject,eventdata,handles)
-end
-
-
-function editPhon_Callback(hObject, eventdata, handles)
-% hObject    handle to editPhon (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of editPhon as text
-%        str2double(get(hObject,'String')) returns contents of editPhon as a double
-if strcmp(get(handles.figure1,'CurrentCharacter'),char(13))==1
-    losAdvanced_Callback(hObject,eventdata,handles)
-end
-
-%%%%%%%%%%%%%%%%%%%%%%% End Keyboard Input %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
