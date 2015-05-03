@@ -76,15 +76,15 @@ varargout{1} = handles.output;
 %%%%%%%%%%%%%%%%%%%%%% Simple Search Callback %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % --- Executes on button press in los.
-% by pushing the button 'Los!' the search of the database with one
+% by pushing the button 'Go!' the search of the database with one
 % parameter (entered by user) is started --> simple search
 function los_Callback(hObject, eventdata, handles)
 % hObject    handle to los (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-%display 'Suche..' in listbox while execution of fileSearch
-set(handles.listboxResults,'string','Suche...');
+%display 'Searching..' in listbox while execution of fileSearch
+set(handles.listboxResults,'string','Searching');
 
 %check which radiobutton is selected
 selectedButton = get(get(handles.parameterSelected,'SelectedObject'),'String');
@@ -115,17 +115,22 @@ switch selectedButton
         fileNames=[];
 end
 
-%if there were matches, the elements of the cell array (which are filenames)
-%are displayed in the listbox, if not it shows 'Keine Ergebnisse'
+%giving results to listbox
 if isempty(fileNames) ==0
+    %fileSearch returns 'wrongInput', if the input made by the user was not
+    %correct. then a window with a warning message pops up and the listbox 
+    %shows 'No results'
     if strcmp(fileNames,'wrongInput')==1
-        wrongInput;
-        set(handles.listboxResults,'string',['Keine Ergebnisse fuer ' stringToSearchFor],'value',1);
+        wrongInput; %pop-up-window with warning
+        set(handles.listboxResults,'string',['No results for ' stringToSearchFor],'value',1);
     else
+        %if there were matches, the elements of the cell array (which are filenames)
+        %are displayed in the listbox
         set(handles.listboxResults,'string',fileNames,'value',1);
     end
 else
-    set(handles.listboxResults,'string',['Keine Ergebnisse fuer ' stringToSearchFor],'value',1);
+    %if there were no matches listbox shows 'No results'
+    set(handles.listboxResults,'string',['No results for ' stringToSearchFor],'value',1);
 end
 %displays the first sentence right after searching
 displaySentence(handles)
@@ -144,13 +149,12 @@ function listboxResults_Callback(hObject, eventdata, handles)
 
 displaySentence(handles);
 
-
 %%%%%%%%%%% End Display Full Sentence of Selected Item %%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%% Play Callback %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % --- Executes on button press in play.
-% by pushing the button 'Abspielen' the audio file specified by the selected
+% by pushing the button 'Play' the audio file specified by the selected
 % element of the listbox is played by function playFile()
 function play_Callback(hObject, eventdata, handles)
 % hObject    handle to play (see GCBO)
@@ -161,15 +165,19 @@ function play_Callback(hObject, eventdata, handles)
 fileNames = get(handles.listboxResults,'String');
 indexSelected = get(handles.listboxResults,'Value');
 
-%if the listbox is containing an cell array (meaning that there are results)
-%the audiofile with the name of the selected element is played
+%continue only, if the listbox is containing an cell array (meaning that 
+%there are results)
 if iscell(fileNames)==1
+    %path of selected element
     fileNameDir = ['TIMIT MIT/' fileNames{indexSelected}];
+    %detect, if there is noise in audiofile
     Noise = detectNoise(fileNameDir);
-    if Noise == 0
+    if Noise == 0 %if there is no noise, play the file
         playFile(fileNameDir);
-    else
-        tmp = warningGui;
+    %if there is noise, a window with a warning message pops up and gives
+    %the user the choice to play or not to play the file
+    else 
+        tmp = warningGui; %pop-up-window, returns 1 for yes and 0 for no 
         if tmp==1
             playFile(fileNameDir);
         end
@@ -181,7 +189,7 @@ end
 %%%%%%%%%%%%%%%%% Open Folder Callback %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % --- Executes on button press in directory.
-% by pushing the button 'In Ordner anzeigen', the directory of the selected
+% by pushing the button 'Open Folder', the directory of the selected
 % file is opened
 function directory_Callback(hObject, eventdata, handles)
 % hObject    handle to directory (see GCBO)
@@ -204,7 +212,7 @@ end
 %%%%%%%%%%%%%%%% Open Advanced Search GUI Element %%%%%%%%%%%%%%%%%%%%%%%%%
 
 % --- Executes on button press in moreParButton.
-% if the button 'Nach mehreren Parametern suchen' is toggled, the gui is
+% if the button 'Search for multiple parameters' is toggled, the gui is
 % extended to show the advanced search with more possible input parameters
 function moreParButton_Callback(hObject, eventdata, handles)
 % hObject    handle to moreParButton (see GCBO)
@@ -244,15 +252,15 @@ end
 %%%%%%%%%%%%%%%% Advanced Search Callback %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % --- Executes on button press in losAdvanced.
-% by pushing the button 'Los!' the search of the database with one ore more
+% by pushing the button 'Go!' the search of the database with one ore more
 % parameters (entered by user) is started --> advanced search
 function losAdvanced_Callback(hObject, eventdata, handles)
 % hObject    handle to losAdvanced (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-%display 'Suche..' in listbox while execution of fileSearch
-set(handles.listboxResults,'string','Suche...');
+%display 'Searching...' in listbox while execution of fileSearch
+set(handles.listboxResults,'string','Searching...');
 
 
 %read content of the four edit boxes or set 0 if empty
@@ -277,17 +285,22 @@ end
 %as a cell array
 fileNames = fileSearch(id,sen,word,phon);
 
-%if there were matches, the elements of the cell array (which are filenames)
-%are displayed in the listbox, if not it shows 'Keine Ergebnisse'
+%giving results to listbox
 if isempty(fileNames) ==0
+    %fileSearch returns 'wrongInput', if the input made by the user was not
+    %correct. then a window with a warning message pops up and the listbox 
+    %shows 'No results'
     if strcmp(fileNames,'wrongInput')==1
-        wrongInput;
-        set(handles.listboxResults,'string',['Keine Ergebnisse fuer ' stringToSearchFor],'value',1);
+        wrongInput; %pop-up-window with warning
+        set(handles.listboxResults,'string',['No results for ' stringToSearchFor],'value',1);
     else
+        %if there were matches, the elements of the cell array (which are filenames)
+        %are displayed in the listbox
         set(handles.listboxResults,'string',fileNames,'value',1);
     end
 else
-    set(handles.listboxResults,'string','Keine Ergebnisse','value',1);
+    %if there were no matches listbox shows 'No results'
+    set(handles.listboxResults,'string',['No results for ' stringToSearchFor],'value',1);
 end
 
 %displays the first sentence right after searching
