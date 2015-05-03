@@ -24,9 +24,11 @@ function fileNames = fileSearch(id, sen, word, phon)
 %------------Function implementation---------------------------
 
 %wrong input handling
-if sen~=0 && isempty(strfind(sen,' ')) && isempty(strfind(sen,'.'))
-    fileNames = 'wrongInput';
-    return
+if ischar(sen) 
+    if isempty(strfind(sen,' ')) || ~strcmp(sen(end),'.')
+        fileNames = 'wrongInput';
+        return
+    end
 end
    
 
