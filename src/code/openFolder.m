@@ -23,7 +23,7 @@ if strfind(curOs,'WIN')~=0 %Windows
     folderdir=[pwd '"' '\' data{1} '\' data{2} '"'];
     system(['explorer ' folderdir]);
 elseif strfind(curOs,'GLN')~=0  %Linux
-    folderdir=['"' pwd '/' slash data{1} '/' data{2} '"'];
+    folderdir=['"' pwd '/' data{1} '/' data{2} '"'];
     system(['nautilus ' folderdir]);
 elseif strfind(curOs,'MAC')~=0 %Mac
     folderdir=[pwd '/' data{1} '/' data{2} ];
